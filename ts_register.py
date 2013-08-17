@@ -31,7 +31,7 @@ class roommatesRegistration(unittest.TestCase):
     def mailGen(self):
         """log.txt must be in working directory. if you move it, make sure to change the below code"""
         self.email = "tester%s@example.com" % floor(uniform(1,10)*100)
-        logFile=open('log.txt','w') #change first param, if you move directories
+        logFile=open('ts_logs/log.txt','w') #change first param, if you move directories
         logFile.write('')
         logFile.write(self.email)
         return self.email

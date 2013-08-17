@@ -6,7 +6,7 @@ class roommatesLogin(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
-        logFile=open('log.txt','r')
+        logFile=open('ts_logs/log.txt','r')
         self.email=logFile.read()
         if(self.email==""):
             print("No email found, running ts_register.py...")
