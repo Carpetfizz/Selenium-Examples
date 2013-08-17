@@ -5,7 +5,7 @@ TestScripts
 
 Copy `ts_registration.py`, `ts_login.py`, and `ts_logs` to your Python Lib directory. 
 
-Windows Defautlt: `C://PythonXY/Lib/`.
+Windows Default: `C://PythonXY/Lib/`.
 
 OSX Preinstalled: Run `type -a python` in Terminal.
 
