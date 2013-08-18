@@ -23,10 +23,7 @@ class roommatesRegistration(unittest.TestCase):
         textField_password.send_keys("password") 
         button_submit = driver.find_element_by_xpath("//*[@id='sign-up']/form/div[2]/div[4]/button")
         button_submit.click(); 
-        note_confirmEmail = driver.find_element_by_xpath("//*[@id='check-email']/div[2]")
-        assert note_confirmEmail #assert notification box. it will only show up, if fields are legally filled
-               
-   
+           
 
     def mailGen(self):
         """log.txt must be in working directory. if you move it, make sure to change the below code"""
