@@ -13,6 +13,7 @@ class roommatesLogin(unittest.TestCase):
             registrationTest=unittest.TestLoader().loadTestsFromModule(ts_register)
             unittest.TextTestRunner(verbosity=2).run(registrationTest)
             self.email=logFile.read()
+        self.tearDownBool=True
         
 
     def test_login(self):
@@ -31,7 +32,8 @@ class roommatesLogin(unittest.TestCase):
     
 
     def tearDown(self):
-        self.driver.close()
+        if(self.tearDownBool):
+            self.driver.close()
 
 
         
