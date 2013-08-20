@@ -1,11 +1,11 @@
 import unittest
-from selenium import webdriver
+from webdriverplus import WebDriver
 import ts_register
 
 class roommatesLogin(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = WebDriver('firefox',reuse_browser=True)
         logFile=open('ts_logs/log.txt','r')
         self.email=logFile.read()
         if(self.email==""):
@@ -13,7 +13,7 @@ class roommatesLogin(unittest.TestCase):
             registrationTest=unittest.TestLoader().loadTestsFromModule(ts_register)
             unittest.TextTestRunner(verbosity=2).run(registrationTest)
             self.email=logFile.read()
-        self.tearDownBool=True
+        
         
 
     def test_login(self):
@@ -32,8 +32,7 @@ class roommatesLogin(unittest.TestCase):
     
 
     def tearDown(self):
-        if(self.tearDownBool):
-            self.driver.close()
+        self.driver.quit()
 
 
         

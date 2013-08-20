@@ -1,13 +1,12 @@
 import unittest
 from random import uniform
 from math import floor
-from selenium import webdriver
-
+from webdriverplus import WebDriver
 
 class roommatesRegistration(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = WebDriver('firefox',reuse_browser=True)
 
     def test_registration(self):
         print("Running registration test...")
@@ -35,7 +34,7 @@ class roommatesRegistration(unittest.TestCase):
     
         
     def tearDown(self):
-        self.driver.close();
+        self.driver.quit();
 
 if __name__=='__main__':
     print("ts_register.py directly invoked")
