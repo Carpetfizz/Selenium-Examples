@@ -11,8 +11,16 @@ OSX Preinstalled: Run `type -a python` in Terminal.
 
 Both scripts will run standalone. `ts_login.py` will run `ts_registration.py` if an email is not detected in `log.txt`
 
-NOTE: If you are importing the `ts_login.py` module into other TestScripts, find the `self.tearDownBool` variable in the setup function an set it to false. Ex:
+`log.txt` will only update in the current working directory that contains the `ts_logs` folder. So, if you copy all three files into `PythonXY/Lib`, the `ts_logs` folder will only work if you run the scripts from that directory.
 
-`self.tearDownBool=False`
+###Using `ts_login` in other test scripts
 
-This will ensure that `ts_login.py` does not close the browser once the login test has been run, so that the test depending on login can run properly. 
+Ensure that `ts_login.py` is in your `PythonXY/Libs` folder. In your new test script, have these imports, along with any existing ones.
+
+    import unittest
+    from webdriverplus import WebDriver
+    import ts_login
+
+In your `setUp()`, add the following line, if you want to reuse the browser for another outer level test.
+
+    self.driver=WebDriver('firefox',reuse_browser=True)
