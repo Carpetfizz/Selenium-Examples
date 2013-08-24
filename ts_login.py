@@ -3,6 +3,13 @@ from selenium import webdriver
 import ts_register
 from time import sleep
 
+DRIVER = None
+
+def getOrCreateWebDriver():
+    global DRIVER
+    DRIVER = DRIVER or webdriver.Firefox()
+    return DRIVER
+
 class roommatesLogin(unittest.TestCase):
 
     def setUp(self):
@@ -16,7 +23,7 @@ class roommatesLogin(unittest.TestCase):
             self.driver=ts_register.getOrCreateWebDriver()
         else:
             print("Email found in log.txt")
-            self.driver=webdriver.Firefox()
+            self.driver=getOrCreateWebDriver()
         if __name__=='__main__':
             self.quitBrowser=True
         

@@ -15,12 +15,16 @@ Both scripts will run standalone. `ts_login.py` will run `ts_registration.py` if
 
 ###Using `ts_login` in other test scripts
 
-Ensure that `ts_login.py` is in your `PythonXY/Libs` folder. In your new test script, have these imports, along with any existing ones.
+Ensure that `ts_login.py` and `ts_register.py` is in your `PythonXY/Libs` folder. In your new test script, have these imports, along with any existing ones. In your constructor, or setup, add the following code in the event that you want to login.
 
-    import unittest
-    from webdriverplus import WebDriver
-    import ts_login
+    self.driver=ts_login.getOrCreateWebDriver()
 
-In your `setUp()`, add the following line, if you want to reuse the browser for another outer level test.
+Example:
 
-    self.driver=WebDriver('firefox',reuse_browser=True)
+	#someTest.py
+	import stuff
+	import ts_login
+
+	class myTest(unittest.TestCase):
+		def setUp():
+			self.driver=ts_login.getOrCreateWebDriver()
